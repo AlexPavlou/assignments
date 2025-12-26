@@ -1,41 +1,20 @@
-# Prerequisites
-*.d
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+bin/
+obj/
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
 
-# Precompiled Headers
-*.gch
-*.pch
+Comics/*.jpg
+!Comics/.gitkeep
 
-# Linker files
-*.ilk
+.DS_Store
+Thumbs.db
 
-# Debugger Files
-*.pdb
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
-
-# debug information files
-*.dwo
+*.csproj.user
