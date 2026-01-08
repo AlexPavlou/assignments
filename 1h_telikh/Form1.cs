@@ -12,9 +12,9 @@ namespace _1h_telikh
     {
         private List<ComicItem> comicElements = new List<ComicItem>();
         private ComicItem selectedElement;
-        private Point offset;
+        private Point offset; // offset between a comicItem and the cursor, (we keep so it so that the cursor attaches to images at the point you clicked on instead of their top left corner)
         private int page = 1;
-        private string comicsDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Comics");
+        private string comicsDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Comics"); //finalized comic directory
         private string assetDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Assets");
         private bool isResizing = false;
 
@@ -26,6 +26,7 @@ namespace _1h_telikh
             this.Load += (s, e) => CenterCanvas();
             this.pnlCanvas.DragEnter += (s, e) => e.Effect = DragDropEffects.Copy; // copies image on to the canvas
 
+            // enables double buffer on the canvas to avoid flickering
             pnlCanvas.GetType().GetProperty("DoubleBuffered", BindingFlags.Instance | BindingFlags.NonPublic).SetValue(pnlCanvas, true);
 
             if (!Directory.Exists(comicsDir)) Directory.CreateDirectory(comicsDir);
@@ -59,35 +60,42 @@ namespace _1h_telikh
             {
                 // create a PictureBox element for each file in our assets folder
                 var pb = new PictureBox { Image = LoadInMem(f), Size = new Size(80, 80), SizeMode = PictureBoxSizeMode.Zoom, Margin = new Padding(5), Tag = f };
-                // initiate drag-and-drop using the file path stored in the Tag property
+                // attach the following listener to said picture boxes
+                // this uses the 'DoDragDrop' method to copy and paste the image through its file path (contained in the Tag property)
                 pb.MouseDown += (s, e) => { if (e.Button == MouseButtons.Left) pb.DoDragDrop(pb.Tag, DragDropEffects.Copy); };
-                toolboxAssets.Controls.Add(pb);
+                toolboxAssets.Controls.Add(pb); // update controls list
             }
         }
 
         private void pnlCanvas_DragAndDrop(object sender, DragEventArgs e)
         {
+            // Retrieve the file path string that was passed from the DragDrop event
             string f = (string)e.Data.GetData(DataFormats.StringFormat);
             var img = LoadInMem(f);
+            // limit default image width to 200px
             int w = Math.Min(img.Width, 200);
+            // mantain the same aspect ratio
             int h = (int)(w / ((float)img.Width / img.Height));
             comicElements.Add(new ComicItem
             {
                 Img = img,
+                // Convert Screen coordinates to Client coordinates
                 Rect = new Rectangle(pnlCanvas.PointToClient(new Point(e.X, e.Y)), new Size(w, h)),
                 Ratio = (float)img.Width / img.Height
             });
+
+            // redraw canvas
             pnlCanvas.Invalidate();
         }
 
         private void pnlCanvas_MouseDown(object sender, MouseEventArgs e)
         {
-            // if not Mouse_1 then exit
+            // if the button pressed wasn't Mouse_1 then exit
             if (e.Button != MouseButtons.Left) return;
 
             for (int i = comicElements.Count - 1; i >= 0; i--)
             {
-                // create trigger for resizing
+                // create trigger rectangle for resizing, (15px*15px)
                 Rectangle resizeTrigger = new Rectangle(comicElements[i].Rect.Right - 15, comicElements[i].Rect.Bottom - 15, 15, 15);
                 if (resizeTrigger.Contains(e.Location))
                 {
@@ -121,13 +129,14 @@ namespace _1h_telikh
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.T)
+            if (e.KeyCode == Keys.T) // if 'T' was pressed
             {
-                btnAddText_Click(null, null);
+                btnAddText_Click(null, null); // add an editable text object
                 return;
             }
 
-            // if no item is selected then exit
+            // else we must check for operations that require the selection of an element
+            // so if no item is selected then exit
             if (selectedElement == null) return;
 
             if (e.KeyCode == Keys.Delete)
@@ -150,24 +159,29 @@ namespace _1h_telikh
         private void FlipHorizontal() => selectedElement.Img.RotateFlip(RotateFlipType.RotateNoneFlipX);
         private void FlipVertical() => selectedElement.Img.RotateFlip(RotateFlipType.RotateNoneFlipY);
 
+        // wrappers for FlipHorizontal() and FlipVertical(), used for the UI buttons that can perform these operations
         private void btnFlipH_Click(object sender, EventArgs e) { if (selectedElement != null && !selectedElement.IsText) { FlipHorizontal(); pnlCanvas.Invalidate(); } }
         private void btnFlipV_Click(object sender, EventArgs e) { if (selectedElement != null && !selectedElement.IsText) { FlipVertical(); pnlCanvas.Invalidate(); } }
 
         private void pnlCanvas_MouseMove(object sender, MouseEventArgs e)
         {
-            bool overHandle = false;
+            bool isCursorOverElem = false;
             foreach (var i in comicElements)
-                if (new Rectangle(i.Rect.Right - 15, i.Rect.Bottom - 15, 15, 15).Contains(e.Location)) overHandle = true;
+                // check if the cursor is on top of a comic element
+                if (new Rectangle(i.Rect.Right - 15, i.Rect.Bottom - 15, 15, 15).Contains(e.Location)) isCursorOverElem = true;
 
-            if (selectedElement == null) { pnlCanvas.Cursor = overHandle ? Cursors.SizeNWSE : Cursors.Default; return; }
+            // if there is no selected element adjust cursor icon
+            if (selectedElement == null) { pnlCanvas.Cursor = isCursorOverElem ? Cursors.SizeNWSE : Cursors.Default; return; }
 
             if (isResizing)
             {
-                int newW = Math.Max(20, e.X - selectedElement.Rect.X);
-                selectedElement.Rect.Width = newW;
-                selectedElement.Rect.Height = (int)(newW / selectedElement.Ratio);
+                // update element width while mantaining aspect ratio
+                int newWidth = Math.Max(20, e.X - selectedElement.Rect.X);
+                selectedElement.Rect.Width = newWidth;
+                selectedElement.Rect.Height = (int)(newWidth / selectedElement.Ratio);
             }
             else if (e.Button == MouseButtons.Left)
+                // move comic element
                 selectedElement.Rect.Location = new Point(e.X - offset.X, e.Y - offset.Y);
 
             pnlCanvas.Invalidate(); //redraw
@@ -175,13 +189,15 @@ namespace _1h_telikh
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            // default to "comic" if no comic name was provided
             string name = string.IsNullOrWhiteSpace(txtComicName.Text) ? "comic" : txtComicName.Text;
-            string path = Path.Combine(comicsDir, $"{name}_{page}.jpg");
+            string path = Path.Combine(comicsDir, $"{name}_{page}.jpg"); // comic_1.jpg, comic_2.jpg etc
 
             using (Bitmap bmp = new Bitmap(pnlCanvas.Width, pnlCanvas.Height))
             {
                 using (Graphics gfx = Graphics.FromImage(bmp))
                 {
+                    // quality settings
                     gfx.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
                     gfx.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
                     gfx.Clear(Color.White);
@@ -197,7 +213,7 @@ namespace _1h_telikh
 
                 EncoderParameters encoderParams = new EncoderParameters(1);
                 encoderParams.Param[0] = new EncoderParameter(System.Drawing.Imaging.Encoder.Quality, 100L); // set quality to 100%
-                bmp.Save(path, GetEncoder(ImageFormat.Jpeg), encoderParams);
+                bmp.Save(path, GetEncoder(ImageFormat.Jpeg), encoderParams); // save image
             }
         }
 
@@ -217,10 +233,11 @@ namespace _1h_telikh
 
         private void pnlCanvas_Paint(object sender, PaintEventArgs e)
         {
+            // draw all comic elements and text
             foreach (var i in comicElements)
                 if (i.IsText) e.Graphics.DrawString(i.Content, new Font("Microsoft Sans Serif", 14), Brushes.Black, i.Rect);
                 else e.Graphics.DrawImage(i.Img, i.Rect);
-            if (selectedElement != null) ControlPaint.DrawFocusRectangle(e.Graphics, selectedElement.Rect);
+            if (selectedElement != null) ControlPaint.DrawFocusRectangle(e.Graphics, selectedElement.Rect); // draw "selected" rectangle indicator
         }
 
         private void newComicMenuItem_Click(object sender, EventArgs e)
@@ -284,15 +301,19 @@ namespace _1h_telikh
             pnlCanvas.Invalidate();
         }
 
+        // function to edit text using a pop up form
         private void pnlCanvas_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             if (selectedElement != null && selectedElement.IsText)
             {
+                // create new form
                 using (Form f = new Form { Width = 300, Height = 120, Text = "Edit Text", StartPosition = FormStartPosition.CenterParent })
                 {
+                    // contains a textbox as well as a save button to update the element's text value
                     TextBox txt = new TextBox { Left = 10, Top = 10, Width = 260, Text = selectedElement.Content };
                     Button btn = new Button { Text = "OK", Left = 190, Width = 80, Top = 40, DialogResult = DialogResult.OK };
                     f.Controls.Add(txt); f.Controls.Add(btn); f.AcceptButton = btn;
+                    // update text value and redraw
                     if (f.ShowDialog() == DialogResult.OK) { selectedElement.Content = txt.Text; pnlCanvas.Invalidate(); }
                 }
             }

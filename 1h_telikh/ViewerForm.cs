@@ -13,6 +13,7 @@ namespace _1h_telikh
 
         public ViewerForm(string p)
         {
+            // use "comic" as default comic name
             comicName = string.IsNullOrWhiteSpace(p) ? "comic" : p;
             InitializeComponent();
             ShowPage(0);
@@ -21,7 +22,7 @@ namespace _1h_telikh
         private bool ShowPage(int step)
         {
             int nextPage = Math.Max(1, cur_page + step);
-            string path = Path.Combine(comicsDir, $"{comicName}_{nextPage}.jpg");
+            string path = Path.Combine(comicsDir, $"{comicName}_{nextPage}.jpg"); // find the next page's path
 
             if (File.Exists(path))
             {
@@ -30,7 +31,7 @@ namespace _1h_telikh
                 if (pb.Image != null) pb.Image.Dispose();
 
                 using (var ms = new MemoryStream(File.ReadAllBytes(path)))
-                    pb.Image = Image.FromStream(ms);
+                    pb.Image = Image.FromStream(ms); // load next page
 
                 return true;
             }
