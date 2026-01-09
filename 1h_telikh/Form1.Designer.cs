@@ -10,7 +10,7 @@
         private System.Windows.Forms.Panel pnlAssets;
         private System.Windows.Forms.Panel pnlControls;
         private System.Windows.Forms.Panel pnlCanvasArea;
-        private System.Windows.Forms.Panel pnlCanvas;
+        private canvasArea pnlCanvas; // Fixed: Correct Type
         private System.Windows.Forms.FlowLayoutPanel toolboxAssets;
         private System.Windows.Forms.Label lblAssetsTitle;
         private System.Windows.Forms.Label lblControlTitle;
@@ -63,7 +63,7 @@
             this.lblPageNum = new System.Windows.Forms.Label();
             this.lblProjName = new System.Windows.Forms.Label();
             this.pnlCanvasArea = new System.Windows.Forms.Panel();
-            this.pnlCanvas = new System.Windows.Forms.Panel();
+            this.pnlCanvas = new _1h_telikh.canvasArea();
             this.menuStrip1.SuspendLayout();
             this.pnlAssets.SuspendLayout();
             this.tabAssets.SuspendLayout();
@@ -328,11 +328,6 @@
             this.pnlCanvas.Name = "pnlCanvas";
             this.pnlCanvas.Size = new System.Drawing.Size(500, 700);
             this.pnlCanvas.TabIndex = 0;
-            this.pnlCanvas.DragDrop += new System.Windows.Forms.DragEventHandler(this.pnlCanvas_DragAndDrop);
-            this.pnlCanvas.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlCanvas_Paint);
-            this.pnlCanvas.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlCanvas_MouseDown);
-            this.pnlCanvas.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnlCanvas_MouseMove);
-            this.pnlCanvas.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pnlCanvas_MouseUp);
             // 
             // Form1
             // 
@@ -341,8 +336,12 @@
             this.Controls.Add(this.pnlAssets);
             this.Controls.Add(this.pnlControls);
             this.Controls.Add(this.menuStrip1);
+            this.KeyPreview = true;
             this.Name = "Form1";
             this.Text = "Comics Editor";
+            this.Load += new System.EventHandler(this.CenterCanvas);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
+            this.Resize += new System.EventHandler(this.CenterCanvas);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.pnlAssets.ResumeLayout(false);
