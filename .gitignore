@@ -7,8 +7,6 @@ obj/
 *.pdb
 
 *.dat
-*.png
-Comics/*.jpg
 !Comics/.gitkeep
 
 .vs/
