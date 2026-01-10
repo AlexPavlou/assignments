@@ -1,14 +1,11 @@
-bin/
+
 obj/
-[Dd]ebug/
 [Rr]elease/
 *.exe
 *.dll
 *.pdb
 
 *.dat
-*.png
-Comics/*.jpg
 !Comics/.gitkeep
 
 .vs/
