@@ -1,0 +1,11 @@
+C:\Users\Alex\source\repos\1h_telikh\1h_telikh\bin\Debug\1h_telikh.exe.config
+C:\Users\Alex\source\repos\1h_telikh\1h_telikh\bin\Debug\1h_telikh.exe
+C:\Users\Alex\source\repos\1h_telikh\1h_telikh\bin\Debug\1h_telikh.pdb
+C:\Users\Alex\source\repos\1h_telikh\1h_telikh\obj\Debug\1h_telikh.csproj.AssemblyReference.cache
+C:\Users\Alex\source\repos\1h_telikh\1h_telikh\obj\Debug\_1h_telikh.Properties.Resources.resources
+C:\Users\Alex\source\repos\1h_telikh\1h_telikh\obj\Debug\1h_telikh.csproj.GenerateResource.cache
+C:\Users\Alex\source\repos\1h_telikh\1h_telikh\obj\Debug\1h_telikh.csproj.CoreCompileInputs.cache
+C:\Users\Alex\source\repos\1h_telikh\1h_telikh\obj\Debug\1h_telikh.exe
+C:\Users\Alex\source\repos\1h_telikh\1h_telikh\obj\Debug\1h_telikh.pdb
+C:\Users\Alex\source\repos\1h_telikh\1h_telikh\obj\Debug\_1h_telikh.ViewerForm.resources
+C:\Users\Alex\source\repos\1h_telikh\1h_telikh\obj\Debug\_1h_telikh.Form1.resources
