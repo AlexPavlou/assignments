@@ -89,7 +89,7 @@ namespace _1h_telikh
         private void btnSave_Click(object sender, EventArgs e)
         {
             string name = string.IsNullOrWhiteSpace(txtComicName.Text) ? "comic" : txtComicName.Text;
-            string path = Path.Combine(comicsDir, $"{name}_{page}.jpg"); // comic_1.jpg, comic_2.jpg etc
+            string path = Path.Combine(comicsDir, $"{name}_{page}.png"); // comic_1.png, comic_2.png etc
 
             pnlCanvas.SaveToImage(path);
         }
@@ -103,6 +103,7 @@ namespace _1h_telikh
         private void newComicMenuItem_Click(object sender, EventArgs e)
         {
             pnlCanvas.comicElements.Clear();
+            pnlCanvas.selectedElement = null;
             page = 1;
             txtComicName.Text = "";
             lblPageNum.Text = "Page: 1";
@@ -111,7 +112,8 @@ namespace _1h_telikh
 
         private void openComicMenuItem_Click(object sender, EventArgs e)
         {
-            using (var od = new OpenFileDialog { Filter = "Comic Pages|*.jpg", InitialDirectory = comicsDir })
+            pnlCanvas.selectedElement = null;
+            using (var od = new OpenFileDialog { Filter = "Comic Pages|*.png", InitialDirectory = comicsDir })
                 if (od.ShowDialog() == DialogResult.OK)
                 {
                     // Get the filename, without the folder or the extension
@@ -149,7 +151,7 @@ namespace _1h_telikh
 
         private void LoadPageAsImage(string name, int pNum)
         {
-            string path = Path.Combine(comicsDir, $"{name}_{pNum}.jpg");
+            string path = Path.Combine(comicsDir, $"{name}_{pNum}.png");
             pnlCanvas.comicElements.Clear();
             if (File.Exists(path))
             {
@@ -318,28 +320,27 @@ namespace _1h_telikh
                     // quality settings
                     gfx.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
                     gfx.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+                    gfx.PixelOffsetMode = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
+                    gfx.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+
                     gfx.Clear(Color.White);
 
                     foreach (ComicItem item in comicElements)
                     {
                         if (item.IsText)
-                            gfx.DrawString(item.Content, new Font("Microsoft Sans Serif", 14), Brushes.Black, item.Rect);
+                        {
+                            using (Font font = new Font("Microsoft Sans Serif", 14))
+                                gfx.DrawString(item.Content, font, Brushes.Black, item.Rect);
+                        }
                         else
+                        {
                             gfx.DrawImage(item.Img, item.Rect);
+                        }
                     }
                 }
 
-                EncoderParameters encoderParams = new EncoderParameters(1);
-                encoderParams.Param[0] = new EncoderParameter(System.Drawing.Imaging.Encoder.Quality, 100L); // set quality to 100%
-                bmp.Save(path, GetEncoder(ImageFormat.Jpeg), encoderParams); // save image
+                bmp.Save(path, System.Drawing.Imaging.ImageFormat.Png); // save page
             }
-        }
-
-        private ImageCodecInfo GetEncoder(ImageFormat format)
-        {
-            foreach (ImageCodecInfo codec in ImageCodecInfo.GetImageDecoders())
-                if (codec.FormatID == format.Guid) return codec;
-            return null;
         }
     }
 }

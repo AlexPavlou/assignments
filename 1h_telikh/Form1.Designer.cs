@@ -10,7 +10,7 @@
         private System.Windows.Forms.Panel pnlAssets;
         private System.Windows.Forms.Panel pnlControls;
         private System.Windows.Forms.Panel pnlCanvasArea;
-        private canvasArea pnlCanvas; // Fixed: Correct Type
+        private canvasArea pnlCanvas;
         private System.Windows.Forms.FlowLayoutPanel toolboxAssets;
         private System.Windows.Forms.Label lblAssetsTitle;
         private System.Windows.Forms.Label lblControlTitle;
@@ -29,12 +29,6 @@
         private System.Windows.Forms.TabControl tabAssets;
         private System.Windows.Forms.TabPage tabImages;
         private System.Windows.Forms.TabPage tabTools;
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null)) components.Dispose();
-            base.Dispose(disposing);
-        }
 
         private void InitializeComponent()
         {
@@ -220,7 +214,8 @@
             this.lblShortcuts.Name = "lblShortcuts";
             this.lblShortcuts.Size = new System.Drawing.Size(200, 84);
             this.lblShortcuts.TabIndex = 2;
-            this.lblShortcuts.Text = "V: Vertically flip\r\nH: Horizontally flip\r\nDel: Delete item\r\nT: Add text\r\n";
+            this.lblShortcuts.Text = "Controls:\r\nT: Add text\r\nV: Vertically flip\r\nH: Horizontally flip\r\nDel: Delete ite" +
+    "m";
             // 
             // pnlControls
             // 
@@ -324,7 +319,7 @@
             // 
             this.pnlCanvas.AllowDrop = true;
             this.pnlCanvas.BackColor = System.Drawing.Color.White;
-            this.pnlCanvas.Location = new System.Drawing.Point(0, 0);
+            this.pnlCanvas.Location = new System.Drawing.Point(121, 3);
             this.pnlCanvas.Name = "pnlCanvas";
             this.pnlCanvas.Size = new System.Drawing.Size(500, 700);
             this.pnlCanvas.TabIndex = 0;
@@ -338,7 +333,7 @@
             this.Controls.Add(this.menuStrip1);
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.Text = "Comics Editor";
+            this.Text = "Comics Story Builder";
             this.Load += new System.EventHandler(this.CenterCanvas);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.Resize += new System.EventHandler(this.CenterCanvas);

@@ -22,7 +22,7 @@ namespace _1h_telikh
         private bool ShowPage(int step)
         {
             int nextPage = Math.Max(1, cur_page + step);
-            string path = Path.Combine(comicsDir, $"{comicName}_{nextPage}.jpg"); // find the next page's path
+            string path = Path.Combine(comicsDir, $"{comicName}_{nextPage}.png"); // find the next page's path
 
             if (File.Exists(path))
             {
