@@ -1,0 +1,20 @@
+C:\Users\Alex\Downloads\Comic Story Builder 2.0\bin\Debug\Comic Story Builder 2.0.exe.config
+C:\Users\Alex\Downloads\Comic Story Builder 2.0\bin\Debug\Comic Story Builder 2.0.exe
+C:\Users\Alex\Downloads\Comic Story Builder 2.0\bin\Debug\Comic Story Builder 2.0.pdb
+C:\Users\Alex\Downloads\Comic Story Builder 2.0\bin\Debug\EntityFramework.dll
+C:\Users\Alex\Downloads\Comic Story Builder 2.0\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Alex\Downloads\Comic Story Builder 2.0\bin\Debug\System.Data.SQLite.dll
+C:\Users\Alex\Downloads\Comic Story Builder 2.0\bin\Debug\System.Data.SQLite.EF6.dll
+C:\Users\Alex\Downloads\Comic Story Builder 2.0\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\Alex\Downloads\Comic Story Builder 2.0\bin\Debug\EntityFramework.xml
+C:\Users\Alex\Downloads\Comic Story Builder 2.0\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Alex\Downloads\Comic Story Builder 2.0\bin\Debug\System.Data.SQLite.xml
+C:\Users\Alex\Downloads\Comic Story Builder 2.0\obj\Debug\Comic Story Builder 2.0.csproj.AssemblyReference.cache
+C:\Users\Alex\Downloads\Comic Story Builder 2.0\obj\Debug\Comic_Story_Builder_2._0.Form1.resources
+C:\Users\Alex\Downloads\Comic Story Builder 2.0\obj\Debug\Comic_Story_Builder_2._0.Form2.resources
+C:\Users\Alex\Downloads\Comic Story Builder 2.0\obj\Debug\Comic_Story_Builder_2._0.Properties.Resources.resources
+C:\Users\Alex\Downloads\Comic Story Builder 2.0\obj\Debug\Comic Story Builder 2.0.csproj.GenerateResource.cache
+C:\Users\Alex\Downloads\Comic Story Builder 2.0\obj\Debug\Comic Story Builder 2.0.csproj.CoreCompileInputs.cache
+C:\Users\Alex\Downloads\Comic Story Builder 2.0\obj\Debug\Comic St.105BEF1F.Up2Date
+C:\Users\Alex\Downloads\Comic Story Builder 2.0\obj\Debug\Comic Story Builder 2.0.exe
+C:\Users\Alex\Downloads\Comic Story Builder 2.0\obj\Debug\Comic Story Builder 2.0.pdb

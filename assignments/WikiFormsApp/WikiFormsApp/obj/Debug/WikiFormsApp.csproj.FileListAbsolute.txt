@@ -1,0 +1,15 @@
+C:\Users\PANAGIOTIS\source\repos\WikiFormsApp\WikiFormsApp\obj\Debug\WikiFormsApp.csproj.AssemblyReference.cache
+C:\Users\PANAGIOTIS\source\repos\WikiFormsApp\WikiFormsApp\obj\Debug\WikiFormsApp.Form1.resources
+C:\Users\PANAGIOTIS\source\repos\WikiFormsApp\WikiFormsApp\obj\Debug\WikiFormsApp.Properties.Resources.resources
+C:\Users\PANAGIOTIS\source\repos\WikiFormsApp\WikiFormsApp\obj\Debug\WikiFormsApp.csproj.GenerateResource.cache
+C:\Users\PANAGIOTIS\source\repos\WikiFormsApp\WikiFormsApp\obj\Debug\WikiFormsApp.csproj.CoreCompileInputs.cache
+C:\Users\PANAGIOTIS\source\repos\WikiFormsApp\WikiFormsApp\bin\Debug\WikiFormsApp.exe.config
+C:\Users\PANAGIOTIS\source\repos\WikiFormsApp\WikiFormsApp\bin\Debug\WikiFormsApp.exe
+C:\Users\PANAGIOTIS\source\repos\WikiFormsApp\WikiFormsApp\bin\Debug\WikiFormsApp.pdb
+C:\Users\PANAGIOTIS\source\repos\WikiFormsApp\WikiFormsApp\bin\Debug\Newtonsoft.Json.dll
+C:\Users\PANAGIOTIS\source\repos\WikiFormsApp\WikiFormsApp\bin\Debug\System.Data.SQLite.dll
+C:\Users\PANAGIOTIS\source\repos\WikiFormsApp\WikiFormsApp\bin\Debug\Newtonsoft.Json.xml
+C:\Users\PANAGIOTIS\source\repos\WikiFormsApp\WikiFormsApp\bin\Debug\System.Data.SQLite.xml
+C:\Users\PANAGIOTIS\source\repos\WikiFormsApp\WikiFormsApp\obj\Debug\WikiForm.3CD6583F.Up2Date
+C:\Users\PANAGIOTIS\source\repos\WikiFormsApp\WikiFormsApp\obj\Debug\WikiFormsApp.exe
+C:\Users\PANAGIOTIS\source\repos\WikiFormsApp\WikiFormsApp\obj\Debug\WikiFormsApp.pdb

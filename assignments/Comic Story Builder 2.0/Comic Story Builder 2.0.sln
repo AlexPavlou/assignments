@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36603.0 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Comic Story Builder 2.0", "Comic Story Builder 2.0.csproj", "{41FD086B-4EE4-416D-9CCD-3838D9EBE657}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{41FD086B-4EE4-416D-9CCD-3838D9EBE657}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41FD086B-4EE4-416D-9CCD-3838D9EBE657}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41FD086B-4EE4-416D-9CCD-3838D9EBE657}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41FD086B-4EE4-416D-9CCD-3838D9EBE657}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {48099093-F7F7-432D-B19C-E54C8253FDF6}
+	EndGlobalSection
+EndGlobal
