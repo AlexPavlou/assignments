@@ -10,7 +10,7 @@ namespace _2h_telikh
     public partial class Form1 : Form
     {
         bool haveMemory = false;
-        private const string API_KEY = "AIzaSyBOp9XSiVaD-Y7mRp12kiya3F7ciNCsEBQ";
+        private const string API_KEY = "";
 
         private ChatSession chatSession;
         private string selectedModel = "models/gemini-2.5-flash";
