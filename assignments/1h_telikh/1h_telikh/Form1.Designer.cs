@@ -70,7 +70,7 @@
             this.fileMenu});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1100, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1100, 30);
             this.menuStrip1.TabIndex = 3;
             // 
             // fileMenu
@@ -79,7 +79,7 @@
             this.newComicMenuItem,
             this.openComicMenuItem});
             this.fileMenu.Name = "fileMenu";
-            this.fileMenu.Size = new System.Drawing.Size(46, 24);
+            this.fileMenu.Size = new System.Drawing.Size(46, 26);
             this.fileMenu.Text = "File";
             // 
             // newComicMenuItem
@@ -102,9 +102,9 @@
             this.pnlAssets.Controls.Add(this.lblAssetsTitle);
             this.pnlAssets.Controls.Add(this.lblShortcuts);
             this.pnlAssets.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnlAssets.Location = new System.Drawing.Point(0, 28);
+            this.pnlAssets.Location = new System.Drawing.Point(0, 30);
             this.pnlAssets.Name = "pnlAssets";
-            this.pnlAssets.Size = new System.Drawing.Size(200, 772);
+            this.pnlAssets.Size = new System.Drawing.Size(200, 770);
             this.pnlAssets.TabIndex = 1;
             // 
             // tabAssets
@@ -115,7 +115,7 @@
             this.tabAssets.Location = new System.Drawing.Point(0, 30);
             this.tabAssets.Name = "tabAssets";
             this.tabAssets.SelectedIndex = 0;
-            this.tabAssets.Size = new System.Drawing.Size(200, 658);
+            this.tabAssets.Size = new System.Drawing.Size(200, 656);
             this.tabAssets.TabIndex = 0;
             // 
             // tabImages
@@ -124,7 +124,7 @@
             this.tabImages.Controls.Add(this.btnAddAssets);
             this.tabImages.Location = new System.Drawing.Point(4, 25);
             this.tabImages.Name = "tabImages";
-            this.tabImages.Size = new System.Drawing.Size(192, 629);
+            this.tabImages.Size = new System.Drawing.Size(192, 627);
             this.tabImages.TabIndex = 0;
             this.tabImages.Text = "Assets";
             // 
@@ -134,7 +134,7 @@
             this.toolboxAssets.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolboxAssets.Location = new System.Drawing.Point(0, 23);
             this.toolboxAssets.Name = "toolboxAssets";
-            this.toolboxAssets.Size = new System.Drawing.Size(192, 606);
+            this.toolboxAssets.Size = new System.Drawing.Size(192, 604);
             this.toolboxAssets.TabIndex = 0;
             // 
             // btnAddAssets
@@ -206,7 +206,7 @@
             // 
             this.lblShortcuts.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lblShortcuts.Font = new System.Drawing.Font("Arial", 7F);
-            this.lblShortcuts.Location = new System.Drawing.Point(0, 688);
+            this.lblShortcuts.Location = new System.Drawing.Point(0, 686);
             this.lblShortcuts.Name = "lblShortcuts";
             this.lblShortcuts.Size = new System.Drawing.Size(200, 84);
             this.lblShortcuts.TabIndex = 2;
@@ -224,9 +224,9 @@
             this.pnlControls.Controls.Add(this.lblPageNum);
             this.pnlControls.Controls.Add(this.lblProjName);
             this.pnlControls.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlControls.Location = new System.Drawing.Point(920, 28);
+            this.pnlControls.Location = new System.Drawing.Point(920, 30);
             this.pnlControls.Name = "pnlControls";
-            this.pnlControls.Size = new System.Drawing.Size(180, 772);
+            this.pnlControls.Size = new System.Drawing.Size(180, 770);
             this.pnlControls.TabIndex = 2;
             // 
             // lblControlTitle
@@ -306,9 +306,9 @@
             this.pnlCanvasArea.BackColor = System.Drawing.Color.DimGray;
             this.pnlCanvasArea.Controls.Add(this.pnlCanvas);
             this.pnlCanvasArea.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlCanvasArea.Location = new System.Drawing.Point(200, 28);
+            this.pnlCanvasArea.Location = new System.Drawing.Point(200, 30);
             this.pnlCanvasArea.Name = "pnlCanvasArea";
-            this.pnlCanvasArea.Size = new System.Drawing.Size(720, 772);
+            this.pnlCanvasArea.Size = new System.Drawing.Size(720, 770);
             this.pnlCanvasArea.TabIndex = 0;
             // 
             // pnlCanvas

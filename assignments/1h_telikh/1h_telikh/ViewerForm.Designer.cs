@@ -9,7 +9,7 @@
         private System.Windows.Forms.Button btnN;
         private System.Windows.Forms.Button btnP;
         private System.Windows.Forms.Button btnAuto;
-        private System.Windows.Forms.NumericUpDown numSpeed;
+        private System.Windows.Forms.NumericUpDown pageTurnInterval;
         private System.Windows.Forms.Timer timer1;
 
         protected override void Dispose(bool disposing)
@@ -27,12 +27,12 @@
             this.btnP = new System.Windows.Forms.Button();
             this.btnN = new System.Windows.Forms.Button();
             this.btnAuto = new System.Windows.Forms.Button();
-            this.numSpeed = new System.Windows.Forms.NumericUpDown();
+            this.pageTurnInterval = new System.Windows.Forms.NumericUpDown();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pb)).BeginInit();
             this.pnlView.SuspendLayout();
             this.pnlSide.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numSpeed)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pageTurnInterval)).BeginInit();
             this.SuspendLayout();
             // 
             // pb
@@ -62,7 +62,7 @@
             this.pnlSide.Controls.Add(this.btnP);
             this.pnlSide.Controls.Add(this.btnN);
             this.pnlSide.Controls.Add(this.btnAuto);
-            this.pnlSide.Controls.Add(this.numSpeed);
+            this.pnlSide.Controls.Add(this.pageTurnInterval);
             this.pnlSide.Dock = System.Windows.Forms.DockStyle.Right;
             this.pnlSide.Location = new System.Drawing.Point(750, 0);
             this.pnlSide.Name = "pnlSide";
@@ -89,20 +89,22 @@
             // 
             // btnAuto
             // 
+            this.btnAuto.BackColor = System.Drawing.Color.PaleGreen;
             this.btnAuto.Location = new System.Drawing.Point(10, 80);
             this.btnAuto.Name = "btnAuto";
             this.btnAuto.Size = new System.Drawing.Size(130, 30);
             this.btnAuto.TabIndex = 2;
-            this.btnAuto.Text = "Auto-turn";
+            this.btnAuto.Text = "Enable Auto-turn";
+            this.btnAuto.UseVisualStyleBackColor = true;
             this.btnAuto.Click += new System.EventHandler(this.btnAuto_Click);
             // 
-            // numSpeed
+            // pageTurnInterval
             // 
-            this.numSpeed.Location = new System.Drawing.Point(10, 120);
-            this.numSpeed.Name = "numSpeed";
-            this.numSpeed.Size = new System.Drawing.Size(120, 22);
-            this.numSpeed.TabIndex = 3;
-            this.numSpeed.Value = new decimal(new int[] {
+            this.pageTurnInterval.Location = new System.Drawing.Point(10, 120);
+            this.pageTurnInterval.Name = "pageTurnInterval";
+            this.pageTurnInterval.Size = new System.Drawing.Size(120, 22);
+            this.pageTurnInterval.TabIndex = 3;
+            this.pageTurnInterval.Value = new decimal(new int[] {
             2,
             0,
             0,
@@ -122,7 +124,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pb)).EndInit();
             this.pnlView.ResumeLayout(false);
             this.pnlSide.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numSpeed)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pageTurnInterval)).EndInit();
             this.ResumeLayout(false);
 
         }

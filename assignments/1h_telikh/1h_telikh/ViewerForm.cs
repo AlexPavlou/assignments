@@ -35,6 +35,8 @@ namespace _1h_telikh
 
                 return true;
             }
+            btnAuto.UseVisualStyleBackColor = true;
+            timer1.Stop();
             return false;
         }
 
@@ -42,18 +44,20 @@ namespace _1h_telikh
         private void btnN_Click(object sender, EventArgs e) => ShowPage(1);
         private void btnAuto_Click(object sender, EventArgs e)
         {
+            btnAuto.BackColor = Color.LightGreen;
             if (timer1.Enabled)
             {
                 timer1.Stop();
+                btnAuto.UseVisualStyleBackColor = true;
             }
             else
             {
-                if (numSpeed.Value <= 0)
+                if (pageTurnInterval.Value < 0)
                 {
                     return;
                 }
 
-                timer1.Interval = (int)numSpeed.Value * 1000;
+                timer1.Interval = (int)pageTurnInterval.Value * 1000;
                 timer1.Start();
             }
         }
